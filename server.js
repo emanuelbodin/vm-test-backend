@@ -1,15 +1,15 @@
 const express = require('express');
-
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
-
+app.use(cors());
 // Route that sends back random data
 app.get('/api/data', (req, res) => {
   const randomData = {
     id: Math.floor(Math.random() * 1000),
     value: Math.random().toFixed(2),
     timestamp: new Date().toISOString(),
-    message: 'Random data generated'
+    message: 'Random data generated',
   };
 
   res.json(randomData);
